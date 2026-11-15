@@ -1,0 +1,14 @@
+:root { font-family: system-ui, sans-serif; color: #172333; background: #f3f6fa; }
+body { margin: 0; }
+main { max-width: 44rem; margin: 3rem auto; padding: 0 1rem; }
+a { color: #154fa5; }
+li { margin: .75rem 0; }
+.card { background: white; border: 1px solid #ccd5e0; border-radius: .75rem; padding: 1.5rem; margin: 1rem 0; overflow-wrap: anywhere; }
+.card > div { font-size: 1.25rem; }
+.card h3 { font-size: 1rem; color: #4b5b70; }
+.answer { border-top: 1px solid #ccd5e0; margin-top: 1rem; }
+button { font: inherit; padding: .65rem 1rem; cursor: pointer; border: 1px solid #8092ab; border-radius: .4rem; background: white; color: #172333; }
+button:disabled { opacity: .45; cursor: default; }
+nav { display: flex; gap: .75rem; }
+audio, img { max-width: 100%; }
+:focus-visible { outline: 3px solid #226bca; outline-offset: 3px; }
