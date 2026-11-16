@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80" role="img" aria-labelledby="title">
-  <title id="title">Diamond</title>
+  <title id="title">Rhombus</title>
   <polygon points="60,8 108,40 60,72 12,40" fill="#dbeafe" stroke="#1e40af" stroke-width="3"/>
 </svg>

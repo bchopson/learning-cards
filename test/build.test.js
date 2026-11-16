@@ -70,7 +70,7 @@ test('renders the geometry set’s circle area formula', async () => {
   const markdown = await readFile(new URL(`../${file}`, import.meta.url), 'utf8');
   const { title, cards } = parseCards(markdown, file);
   assert.equal(title, 'Geometry');
-  assert.equal(cards.length, 2);
+  assert.match(cards[2].answer, /src="cards\/math\/sine-ratio.svg"/);
   for (const shape of ['square', 'rectangle', 'diamond', 'trapezoid']) {
     assert.ok(cards[1].answer.includes(`src="cards/math/${shape}.svg"`));
   }
@@ -96,7 +96,7 @@ test('build produces a complete static site with copied media and math assets', 
   assert.match(html, /class="answer"[^>]* hidden/);
   assert.match(html, /src="cards\/phonics\/dog.m4a"/);
   assert.doesNotMatch(html, /<!-- SET/);
-  for (const asset of ['app.js', 'style.css', 'katex/katex.min.css', 'katex/fonts/KaTeX_Main-Regular.woff2', 'cards/math/circle-area.svg', 'cards/math/square.svg', 'cards/math/rectangle.svg', 'cards/math/diamond.svg', 'cards/math/trapezoid.svg', 'cards/phonics/dog.m4a', '.nojekyll']) {
+  for (const asset of ['app.js', 'style.css', 'katex/katex.min.css', 'katex/fonts/KaTeX_Main-Regular.woff2', 'cards/math/circle-area.svg', 'cards/math/sine-ratio.svg', 'cards/math/square.svg', 'cards/math/rectangle.svg', 'cards/math/diamond.svg', 'cards/math/trapezoid.svg', 'cards/phonics/dog.m4a', '.nojekyll']) {
     assert.ok((await stat(new URL(`dist/${asset}`, root))).isFile());
   }
   assert.deepEqual(await readFile(new URL('dist/cards/phonics/dog.m4a', root)), await readFile(new URL('cards/phonics/dog.m4a', root)));
