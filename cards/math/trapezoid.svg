@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80" role="img" aria-labelledby="title">
+  <title id="title">Trapezoid</title>
+  <polygon points="32,16 88,16 108,64 12,64" fill="#dbeafe" stroke="#1e40af" stroke-width="3"/>
+</svg>

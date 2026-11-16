@@ -15,10 +15,11 @@ async function collect(directory) {
       await collect(file);
     } else if (entry.name.endsWith('.md')) {
       const topic = path.posix.relative('cards', directory) || 'General';
+      const { title, cards } = parseCards(await readFile(path.join(root, file), 'utf8'), file);
       const set = {
         id: `set-${[...topics.values()].reduce((count, sets) => count + sets.length, 0)}`,
-        name: path.basename(entry.name, '.md'),
-        cards: parseCards(await readFile(path.join(root, file), 'utf8'), file),
+        name: title,
+        cards,
       };
       if (!topics.has(topic)) topics.set(topic, []);
       topics.get(topic).push(set);
@@ -48,6 +49,9 @@ await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await writeFile(path.join(dist, 'index.html'), template.replace('<!-- SET_INDEX -->', contents || '<p>No sets yet.</p>').replace('<!-- SETS -->', sets));
 await cp(path.join(root, 'site'), dist, { recursive: true });
+const katexDist = path.dirname(fileURLToPath(import.meta.resolve('katex/dist/katex.min.css')));
+await cp(path.join(katexDist, 'katex.min.css'), path.join(dist, 'katex/katex.min.css'));
+await cp(path.join(katexDist, 'fonts'), path.join(dist, 'katex/fonts'), { recursive: true });
 await cp(path.join(root, 'cards'), path.join(dist, 'cards'), {
   recursive: true,
   filter: source => !source.endsWith('.md'),

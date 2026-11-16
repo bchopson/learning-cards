@@ -4,24 +4,27 @@ Static flashcards built with remark and deployed to GitHub Pages.
 
 ## Authoring
 
-Folders under `cards/` are topics; Markdown files are sets. Each file contains
-one or more alternating `# Question` and `# Answer` sections (case-insensitive).
-Use a space after `#`, as required by Markdown. Both sides must be non-empty.
+Folders under `cards/` are topics; Markdown files are sets. Start each file with
+its set title as a top-level heading (`# Title`), followed by one or more alternating
+`## Question` and `## Answer` sections (case-insensitive). Use a space after the
+heading markers, as required by Markdown. Both sides must be non-empty.
 
 ```markdown
-# Question
+# Phonics Set 1
+
+## Question
 
 dog
 
-# Answer
+## Answer
 
 [Listen](dog.m4a)
 
-# Question
+## Question
 
 What says **meow**?
 
-# Answer
+## Answer
 
 A cat.
 ```
@@ -29,6 +32,10 @@ A cat.
 Put media alongside the Markdown file and use relative URLs. Audio links
 (`.m4a`, `.mp3`, `.ogg`, `.wav`, `.aac`, `.webm`) become embedded players.
 Images and other Markdown formatting are supported; raw HTML is not rendered.
+
+Math uses LaTeX notation: `$\\pi r^2$` for inline math, or `$$` on separate lines
+around a formula for display math. KaTeX renders formulas at build time; its CSS
+and fonts are bundled locally, with no browser-side math JavaScript required.
 
 ## Build and preview
 
