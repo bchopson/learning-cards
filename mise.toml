@@ -1,2 +1,8 @@
 [tools]
 aube = "latest"
+
+[tasks.audio]
+description = "Create an audio file for a word"
+dir = "{{cwd}}"
+usage = 'arg "<word>" help="Word to speak"'
+run = 'say -o "${usage_word}.m4a" --data-format=aac "$usage_word"'
